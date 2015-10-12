@@ -8,9 +8,11 @@
     mc:Ignorable="d">
 
     <Page.TopAppBar>
-        <AppBar>
-            <AppBarButton Icon="Home" Label="Home" Click="MainPage_Click"/>
-        </AppBar>
+        <CommandBar ClosedDisplayMode="Minimal">
+            <CommandBar.Content>
+                <AppBarButton Icon="Home" Label="Home" Click="MainPage_Click"></AppBarButton>
+            </CommandBar.Content>
+        </CommandBar>
     </Page.TopAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -18,7 +20,7 @@
             <RowDefinition Height="0.9*"></RowDefinition>
             <RowDefinition Height="0.1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <GridView Grid.Row="0"/>
+        <GridView Grid.Row="0" ItemsSource="{Binding OrderItems, Source={StaticResource DataManager}}"/>
         <Button Content="Clear All Orders" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
     
     </Grid>
